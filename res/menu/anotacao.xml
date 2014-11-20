@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.br.meuig.AnotacaoActivity" >
+
+    <item
+        android:id="@+id/NovaAnotacao"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="Nova"/>
+
+</menu>

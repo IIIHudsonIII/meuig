@@ -1,0 +1,159 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:scrollbars="none"
+    tools:context="com.br.meuig.CadUsuarioActivity" >
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/editTextBackground" >
+
+        <LinearLayout
+            android:id="@+id/linearNome"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" >
+
+            <TextView
+                android:id="@+id/nome_tv"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="@string/Nome_tv"
+                android:textAlignment="viewStart" />
+
+            <EditText
+                android:id="@+id/nome_ed"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/shapetextview"
+                android:ems="10"
+                android:inputType="textPersonName" >
+
+                <requestFocus />
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearDataNasc"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" >
+
+            <TextView
+                android:id="@+id/dataNasc_tv"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="@string/dataNasc_tv" />
+
+            <EditText
+                android:id="@+id/dataNasc_et"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/shapetextview"
+                android:ems="10"
+                android:hint="@string/dataNasc_hint"
+                android:inputType="date" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearAltura"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" >
+
+            <TextView
+                android:id="@+id/altura_tv"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="@string/altura_tv" />
+
+            <EditText
+                android:id="@+id/altura_et"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/shapetextview"
+                android:ems="10"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearPeso"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" >
+
+            <TextView
+                android:id="@+id/peso_tv"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="@string/peso_tv" />
+
+            <EditText
+                android:id="@+id/peso_et"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/shapetextview"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearSexo"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" >
+
+            <TextView
+                android:id="@+id/sexo_tv"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:text="@string/sexo_tv" />
+
+            <RadioGroup
+                android:id="@+id/radioSexo"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/masculino_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/masculino_radio" />
+
+                <RadioButton
+                    android:id="@+id/feminino_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/feminino_radio" />
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearGlicemia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/tipoGlicemia_tv"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:text="@string/tipoGlicemia_tv" /> 
+
+            <Spinner
+                android:id="@+id/tipo_glicemia_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/shapetextview"
+                tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+        </LinearLayout>
+    </TableLayout>
+
+</LinearLayout>

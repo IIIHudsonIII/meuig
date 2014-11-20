@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Meu IG</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="tipos_glicemia">
+        <item>Nenhum</item>
+        <item>Diabetes tipo I</item>
+        <item>Diabetes tipo II</item>
+        <item>Diabetes Gestacional</item>
+        <item>Hipoglicemia</item>
+        <item>Hiperglicemia</item>
+    </string-array>
+
+    <string name="title_activity_medicoes">Medições</string>
+    <string name="title_activity_cad_usuario">Usuário</string>
+    <string name="Nome_tv">Nome:</string>
+    <string name="dataNasc_tv">Data nasc:</string>
+    <string name="altura_tv">Altura (Cm):</string>
+    <string name="peso_tv">Peso (kg):</string>
+    <string name="sexo_tv">Sexo:</string>
+    <string name="feminino_radio">F</string>
+    <string name="masculino_radio">M</string>
+    <string name="tipoGlicemia_tv">Glicemia:</string>
+    <string name="dataNasc_hint">dd/mm/aaaa</string>
+    <string name="salvar_bt">Salvar</string>
+    <string name="Salvar">Salvar</string>
+    <string name="title_activity_opcoes">Menu</string>
+    <string name="title_activity_cad_medicao">Medição</string>
+    <string name="title_activity_cadmedicao">Medição</string>
+    <string name="salvar_ai">Salvar</string>
+
+</resources>
