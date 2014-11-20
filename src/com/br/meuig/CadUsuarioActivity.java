@@ -9,10 +9,12 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
@@ -50,13 +52,24 @@ public class CadUsuarioActivity extends Activity {
 	helper = new DataBaseHelper(this);
 
 	loadDataSpinner();// carrega spinner
-	ActionBar ab = getActionBar();
-	// tratar aqui pegando os extras da activity que invocou esta... pode
-	// editar ou incluir novo usuario.
-	ab.setTitle("Novo usuário");
-	ab.setSubtitle("Informações básicas");
-
+	trataInicio();
     }
+
+    public void trataInicio() {
+	Log.i(this.getClass() + "", "entrou trata inicio");
+
+	ActionBar ab = getActionBar();
+	Bundle b = getIntent().getExtras();
+	int usuario_id = b.getInt("usuario_id");
+
+	if (b.getInt("usuario_id") == 0) {
+	    ab.setTitle("Novo usuário");
+	} else {
+	    preencheCampos(new UsuarioDAO(this).getWhereId(usuario_id));
+	}
+	ab.setSubtitle("Informações básicas");
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -64,6 +77,27 @@ public class CadUsuarioActivity extends Activity {
 	return true;
     }
 
+    private void preencheCampos(Usuario usuario) {
+
+	nomeEd.setText(usuario.getNome());
+	AlturaEd.setText(usuario.getAltura());
+	dataNascEd.setText(usuario.getDataNasc());
+	pesoEd.setText(usuario.getPeso() + "");
+	Log.i("CAD USUARIO ACTIVITY", " passou de peso");
+	
+	RadioButton rb = null;
+	if (usuario.getSexo() == "M") {
+	    rb = (RadioButton) findViewById(R.id.masculino_radio);
+	    rb.setChecked(true);
+	} else {
+	    rb = (RadioButton) findViewById(R.id.feminino_radio);
+	    rb.setChecked(true);
+	}
+	Log.i("CAD USUARIO ACTIVITY", " passou de sexo!!!!");
+	tipoGlicemiaSpinner.setSelection((int) usuario.getGlicemia_id() - 1);
+	Log.i("CAD USUARIO ACTIVITY", " passou de glicemia!!!!");
+    }
+    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 	// Handle action bar item clicks here. The action bar will
@@ -122,7 +156,7 @@ public class CadUsuarioActivity extends Activity {
 	    return false;
 	}
 	dao.insert(u);
-	
+
 	return true;
     }
 

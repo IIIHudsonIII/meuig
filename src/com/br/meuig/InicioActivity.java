@@ -11,6 +11,7 @@ import com.br.meuig.usuario.UsuarioDAO;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,6 +19,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,6 +38,7 @@ public class InicioActivity extends ListActivity implements
 	android.content.DialogInterface.OnClickListener {
 
     private DataBaseHelper helper;
+    private int usuarioAtual_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +63,7 @@ public class InicioActivity extends ListActivity implements
     private void updateListView() {
 	String[] from = { "nome", "dataNasc" };
 	int[] to = { android.R.id.text1, android.R.id.text2 };
-	UsuarioDAO dao = new UsuarioDAO(this);	
+	UsuarioDAO dao = new UsuarioDAO(this);
 	SimpleAdapter adapter = new SimpleAdapter(this, dao.getAll2(),
 		android.R.layout.simple_list_item_2, from, to);
 	setListAdapter(adapter);// listActivity ja implementa adapter
@@ -87,11 +90,7 @@ public class InicioActivity extends ListActivity implements
 	return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(DialogInterface dialog, int which) {
-	// TODO Auto-generated method stub
 
-    }
 
     @Override
     public void onItemClick(AdapterView<?> adapter, View view, int position,
@@ -123,9 +122,43 @@ public class InicioActivity extends ListActivity implements
 
 	Map<String, String> registro = (Map<String, String>) adapter
 		.getItemAtPosition(position);
+	usuarioAtual_id = Integer.parseInt(registro.get("_id"));
+	
+		criarAlertdialog().show();
 	Toast.makeText(this, "clique longo no item " + registro.get("_id"),
 		Toast.LENGTH_LONG).show();
 	return true;
+    }
+
+    private AlertDialog criarAlertdialog() {
+	// opcoes de editar e excluir para o dialogo
+	CharSequence[] items = { "Visualizar/Editar", "Excluir" };
+
+	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+	// passa as opcoes de editar e excluir em forma de itens de lista
+	builder.setItems(items, this);
+	return builder.create();
+    }
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+	switch (which) {
+	case 0:// editar
+	    Log.i("alertDialogOnClick()", "entrou");
+	    Intent intent =  new Intent(this, CadUsuarioActivity.class);	    
+	    intent.putExtra("usuario_id", usuarioAtual_id);//nao usar bundle    
+	    startActivity(intent);
+	    
+	    break;
+
+	case 1: // excluir
+	    //confirmDialog();// chama o dialogo se deseja excluir; ja atualiza
+			    // lista
+	    break;
+	default:
+	    break;
+	}
     }
 
 }
