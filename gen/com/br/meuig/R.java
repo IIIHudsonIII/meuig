@@ -37,7 +37,7 @@ public final class R {
         public static final int action_Info=0x7f090026;
         public static final int altura_et=0x7f090009;
         public static final int altura_tv=0x7f090008;
-        public static final int compartilhar_item=0x7f090024;
+        public static final int compartilhar_item=0x7f090023;
         public static final int dataNasc_et=0x7f090006;
         public static final int dataNasc_tv=0x7f090005;
         public static final int data_et=0x7f090019;
@@ -59,7 +59,7 @@ public final class R {
         public static final int peso_et=0x7f09000c;
         public static final int peso_tv=0x7f09000b;
         public static final int radioSexo=0x7f09000f;
-        public static final int salvar_ai=0x7f090023;
+        public static final int salvar_ai=0x7f090024;
         public static final int sexo_tv=0x7f09000e;
         public static final int textView1=0x7f09001b;
         public static final int textView2=0x7f090015;
@@ -86,6 +86,7 @@ public final class R {
         public static final int opcoes=0x7f080004;
     }
     public static final class string {
+        public static final int Compartilhar=0x7f050014;
         public static final int Nome_tv=0x7f050005;
         public static final int Salvar=0x7f05000f;
         public static final int action_settings=0x7f050002;

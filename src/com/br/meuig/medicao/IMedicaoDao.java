@@ -6,9 +6,9 @@ import android.content.Context;
 
 public interface IMedicaoDao {
     void Insert( Medicao medicao);
-    void DeleteAllWhereUserID(int usuario_id);
-    Medicao getWhereID(int id);
-    Collection <Medicao> getWhereUsuarioID(int usuario_id); 
+    void DeleteAllWhereUserID(Long usuario_id);
+    Medicao getWhereID(Long id);
+    Collection <Medicao> getWhereUsuarioID(Long usuario_id); 
     void update(Medicao medicao);
     
 }
